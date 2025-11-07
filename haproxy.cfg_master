@@ -46,7 +46,7 @@ listen stat
   stats uri /stats
   stats auth admin:admin
   stats hide-version
-  stats realm "Haproxy Statistics"
+  stats realm Haproxy\ Statistics
 
 cache rebrain_cache
   total-max-size 128
