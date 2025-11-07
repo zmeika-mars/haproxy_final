@@ -85,8 +85,8 @@ backend rebrain_lk
   balance leastconn
   acl is_cached path_end .js .php .css
   http-request cache-use rebrain_cache if is_cached
-  server rebrain_01_81 127.0.0.1:81 inter 4s
-  server rebrain_02_81 127.0.0.1:81 inter 4s maxconn 80
+  server rebrain_01_81 127.0.0.1:81 check inter 4s
+  server rebrain_02_81 127.0.0.1:81 check inter 4s maxconn 80
 
 backend rebrain_back
   mode http
