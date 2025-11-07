@@ -97,7 +97,6 @@ backend rebrain_back
   server rebrain_03_82 127.0.0.1:82 cookie s3 check port 82 inter 8s maxconn 1100
 
 backend rebrain_sql
-  mode http
   balance roundrobin
   option mysql-check user haproxy
   server rebrain_db_1 127.0.0.1:3306 check port 3306 inter 2s fall 2 rise 1 maxconn 100
