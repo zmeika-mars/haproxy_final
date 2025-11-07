@@ -91,7 +91,7 @@ backend rebrain_lk
 backend rebrain_back
   mode http
   balance source
-  cookie PHPSESSID nocache
+  cookie PHPSESSID prefix nocache
   server rebrain_01_82 127.0.0.1:82 cookie s1 check port 82 inter 8s maxconn 1100
   server rebrain_02_82 127.0.0.1:82 cookie s2 check port 82 inter 8s maxconn 1100
   server rebrain_03_82 127.0.0.1:82 cookie s3 check port 82 inter 8s maxconn 1100
