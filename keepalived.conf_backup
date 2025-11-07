@@ -1,0 +1,23 @@
+vrrp_instance VRRP1 {
+    state BACKUP
+    interface eth0
+    virtual_router_id 69
+    priority 49
+    advert_int 1
+    garp_master_delay 10
+    debug 1
+    authentication {
+        auth_type PASS
+        auth_pass 1066
+    }
+    unicast_src_ip 10.131.0.3
+    unicast_peer {
+       10.131.0.13
+    }
+    virtual_ipaddress {
+        158.160.136.228/24 brd 158.224.255.255 scope global label eth0:10
+    }
+    track_script {
+        haproxy
+    }
+}

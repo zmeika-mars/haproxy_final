@@ -1,0 +1,28 @@
+vrrp_script haproxy {
+    script "killall -0 haproxy"
+    interval 2
+    weight -3
+}
+vrrp_instance VRRP1 {
+    state MASTER
+    interface eth0
+    virtual_router_id 69
+    priority 50
+    advert_int 1
+    garp_master_delay 10
+    debug 1
+    authentication {
+        auth_type PASS
+        auth_pass 1066
+    }
+    unicast_src_ip 10.131.0.13
+    unicast_peer {
+       10.131.0.3
+    }
+    virtual_ipaddress {
+        158.160.136.228/24 brd 158.224.255.255 scope global label eth0:10
+    }
+    track_script {
+        haproxy
+    }
+}
